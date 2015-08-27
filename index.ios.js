@@ -16,7 +16,10 @@ class constellation_native extends Component {
         <Text style={styles.welcome}>
           Welcome to Constellation!
         </Text>
-        <Button />
+        <Button text="Camera"/>
+        <Button text="Time"/>
+        <Button text="Direction"/>
+        <Button text="Location"/>
       </View>
     );
   }
