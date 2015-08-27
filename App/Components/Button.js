@@ -21,17 +21,22 @@ class Button extends Component {
 
 var styles = StyleSheet.create({
   button: {
+    height: 36,
+    flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginVertical: 5
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
   },
 
   buttonText: {
     color: 'white',
     fontFamily: 'Helvetica',
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
     marginHorizontal: 10,
     marginVertical: 5
