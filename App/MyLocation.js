@@ -3,6 +3,7 @@ var {
   Component,
   StyleSheet,
   View,
+  Image,
   Text
 } = React
 
@@ -60,9 +61,8 @@ var MyLocation = React.createClass({
           <Text style={styles.title}>Current position: </Text>
           {JSON.stringify(this.state.lastPosition.coords)}
         </Text>
-        <Text style={styles.location_head}>
-          Thanks science!
-        </Text>
+        <Image source={{uri: 'https://brianin3d.files.wordpress.com/2012/01/just_earth_800.gif'}}
+               style={{width: 300, height: 300}} />
       </View>
     );
   }
