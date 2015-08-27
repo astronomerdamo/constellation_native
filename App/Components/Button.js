@@ -10,8 +10,7 @@ class Button extends Component {
   render() {
     return (
       <View style={styles.button}>
-        <View style={styles.buttonIcon} />
-        <Text style={styles.buttonText}>Hi</Text>
+        <Text style={styles.buttonText}>{this.props.text}</Text>
       </View>
     );
   }
@@ -20,20 +19,20 @@ class Button extends Component {
 var styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginVertical: 5
   },
 
   buttonText: {
     color: 'white',
     fontFamily: 'Helvetica',
-    fontSize: 20
+    fontSize: 20,
+    textAlign: 'center',
+    marginHorizontal: 10,
+    marginVertical: 5
   },
-
-  buttonIcon: {
-    marginRight: 10,
-    height: 20,
-    width: 20
-  }
 });
 
 module.exports = Button
