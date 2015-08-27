@@ -4,6 +4,7 @@ var {
   Component,
   StyleSheet,
   View,
+  Image,
   Text
 } = React
 
@@ -22,6 +23,8 @@ var Time = React.createClass({
       <View style={styles.container}>
         <Text style={styles.text}>Your session has lasted: {this.state.secondsElapsed} seconds</Text>
         <Text style={styles.text}>Timestamp: {this.state.date}</Text>
+        <Image source={{uri: 'https://d13yacurqjgara.cloudfront.net/users/149398/screenshots/1616260/216.gif'}}
+          style={{width: 400, height: 400}} />
       </View>
     );
   }
