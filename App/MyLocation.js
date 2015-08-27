@@ -6,11 +6,11 @@ var {
   Text
 } = React
 
-class Direction extends Component {
+class MyLocation extends Component {
   render() {
     return (
       <View>
-        <Text style={styles.text}>Direction Page!</Text>
+        <Text style={styles.text}>Location Page!</Text>
       </View>
     );
   }
@@ -27,4 +27,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = Direction
+module.exports = MyLocation
