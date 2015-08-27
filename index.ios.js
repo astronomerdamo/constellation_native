@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 var React = require('react-native');
@@ -10,10 +6,11 @@ var {
   StyleSheet,
   Text,
   View,
+  Component
 } = React;
 
-var constellation_native = React.createClass({
-  render: function() {
+class constellation_native extends Component {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -29,7 +26,7 @@ var constellation_native = React.createClass({
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
