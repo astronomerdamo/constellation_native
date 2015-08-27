@@ -9,7 +9,7 @@ var {
 class Camera extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.text}>Camera Page!</Text>
       </View>
     );
@@ -17,6 +17,12 @@ class Camera extends Component {
 }
 
 var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
   text: {
     color: 'blue',
     fontFamily: 'Helvetica',

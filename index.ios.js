@@ -22,13 +22,6 @@ class Welcome extends Component {
     })
   }
 
-  foo() {
-    this.props.navigator.push({
-      title: 'Direction',
-      component: Direction
-    })
-  }
-
   render() {
     return (
       <View style={styles.container}>
