@@ -6,6 +6,11 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "babel": "^5.8.21",
     "react-native": "^0.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.2.1",
+    "eslint-plugin-require": "0.0.1"
   }
 }
