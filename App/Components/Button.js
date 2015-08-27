@@ -3,15 +3,18 @@ var {
   Component,
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableOpacity
 } = React
 
 class Button extends Component {
   render() {
     return (
-      <View style={styles.button}>
-        <Text style={styles.buttonText}>{this.props.text}</Text>
-      </View>
+      <TouchableOpacity>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{this.props.text}</Text>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
