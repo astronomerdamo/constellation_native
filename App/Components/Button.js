@@ -10,7 +10,7 @@ var {
 class Button extends Component {
   render() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.props.onPress}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>{this.props.text}</Text>
         </View>
