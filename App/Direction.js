@@ -21,9 +21,11 @@ class Direction extends Component {
     Accelerometer.setAccelerometerUpdateInterval(0.1) // in seconds
 
     DeviceEventEmitter.addListener('AccelerationData', function (data) {
-      this.state.x = data.acceleration.x
-      this.state.y = data.acceleration.y
-      this.state.z = data.acceleration.z
+      if (data) {
+        this.state.x = data.acceleration.x
+        this.state.y = data.acceleration.y
+        this.state.z = data.acceleration.z
+      }
     })
     Accelerometer.startAccelerometerUpdates() // you'll start getting AccelerationData events above
   }
