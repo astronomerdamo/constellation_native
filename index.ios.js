@@ -47,7 +47,7 @@ class Constellation extends Component {
       <NavigatorIOS
         style={styles.rootContainer}
         initialRoute={{
-          title: 'Welcome to Constellation',
+          title: 'Constellation',
           component: Welcome
         }}/>
     );
@@ -58,11 +58,14 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'stretch',
     backgroundColor: 'transparent',
   },
   welcome: {
-    fontSize: 20,
+    flex: 1,
+    fontSize: 25,
+    fontFamily: 'Helvetica',
+    color: 'white',
     textAlign: 'center',
     margin: 10,
   },
@@ -77,6 +80,7 @@ var styles = StyleSheet.create({
   backgroundPicture: {
     flex: 1,
     resizeMode: 'cover',
+    position: 'relative'
   }
 });
 

@@ -22,15 +22,16 @@ class Button extends Component {
 var styles = StyleSheet.create({
   button: {
     height: 36,
-    flex: 1,
-    flexDirection: 'row',
+    width: 150,
+    flex: 2,
+    flexDirection: 'column',
     backgroundColor: '#48BBEC',
     borderColor: '#48BBEC',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
+    marginLeft: 111,
     alignSelf: 'stretch',
-    justifyContent: 'center'
   },
 
   buttonText: {
