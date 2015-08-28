@@ -17,10 +17,13 @@ class Direction extends Component {
   constructor() {
     super()
     this.state = {
-      accel_x: 0, accel_y: 1, accel_z: 0,
+      accel_x: 0, accel_y: 0, accel_z: 0,
       rot_x: 0, rot_y: 0, rot_z: 0,
       mag_x: 0, mag_y: 0, mag_z: 0
     }
+    // accel_x: 0, accel_y: -1, accel_z: 0, straight up
+    // accel_x: 0, accel_y: 0, accel_z: 1 flat
+    // accel_x: 1, accel_y: 0, accel_z: 0 rotated right
   }
 
   componentDidMount() {
@@ -59,7 +62,7 @@ class Direction extends Component {
   pitch(x, y, z) {
     numerator = -1 * x
     denominator = Math.sqrt(Math.pow(y, 2) + Math.pow(z, 2))
-    return Math.atan(numerator / denominator)
+    return Math.atan(numerator / denominator) * (180 / Math.PI)
   }
 
   render() {
