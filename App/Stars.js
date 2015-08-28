@@ -9,6 +9,12 @@ var {
 var stars = require('./Components/StarData/Stars.json')
 var star = stars[Math.floor(Math.random()*stars.length)]
 
+var Circle = React.createClass({
+    render: function() {
+        return <circle {...this.props}>{this.props.children}</circle>;
+    }
+})
+
 var Stars = React.createClass ({
   getInitialState: function() {
     return stars[Math.floor(Math.random()*stars.length)];
@@ -29,6 +35,10 @@ var Stars = React.createClass ({
         <Text style={styles.text}>Declination: {this.state['Declination']}</Text>
         <Text style={styles.text}>Spectrum: {this.state['Spectrum']}</Text>
         <Text style={styles.text}>Constellation: {this.state['Constellation']}</Text>
+        <SVGComponent height="100" width="100">
+            <Circle cx="50" cy="50" r="25" />
+        </SVGComponent>,
+        document.getElementById('svg_circle')
       </View>
     );
   }
