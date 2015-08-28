@@ -26,6 +26,8 @@
 		A814C3731B90B30E005F5BD5 /* UIImagePickerManager in Resources */ = {isa = PBXBuildFile; fileRef = A814C3721B90B30E005F5BD5 /* UIImagePickerManager */; };
 		A814C3751B90B327005F5BD5 /* UIImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A814C3741B90B327005F5BD5 /* UIImagePickerManager.m */; };
 		A83E7CC71B90C522006196CE /* Accelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = A83E7CC61B90C522006196CE /* Accelerometer.m */; };
+		A83E7CD61B90CEAA006196CE /* Gyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = A83E7CD31B90CEAA006196CE /* Gyroscope.m */; };
+		A83E7CD71B90CEAA006196CE /* Magnetometer.m in Sources */ = {isa = PBXBuildFile; fileRef = A83E7CD51B90CEAA006196CE /* Magnetometer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,10 @@
 		A814C3741B90B327005F5BD5 /* UIImagePickerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIImagePickerManager.m; path = "../node_modules/react-native-image-picker/UIImagePickerManager/UIImagePickerManager.m"; sourceTree = "<group>"; };
 		A83E7CC51B90C522006196CE /* Accelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Accelerometer.h; path = ../Accelerometer.h; sourceTree = "<group>"; };
 		A83E7CC61B90C522006196CE /* Accelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Accelerometer.m; path = ../Accelerometer.m; sourceTree = "<group>"; };
+		A83E7CD21B90CEAA006196CE /* Gyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gyroscope.h; path = ../Gyroscope.h; sourceTree = "<group>"; };
+		A83E7CD31B90CEAA006196CE /* Gyroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gyroscope.m; path = ../Gyroscope.m; sourceTree = "<group>"; };
+		A83E7CD41B90CEAA006196CE /* Magnetometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Magnetometer.h; path = ../Magnetometer.h; sourceTree = "<group>"; };
+		A83E7CD51B90CEAA006196CE /* Magnetometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Magnetometer.m; path = ../Magnetometer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +302,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A83E7CD21B90CEAA006196CE /* Gyroscope.h */,
+				A83E7CD31B90CEAA006196CE /* Gyroscope.m */,
+				A83E7CD41B90CEAA006196CE /* Magnetometer.h */,
+				A83E7CD51B90CEAA006196CE /* Magnetometer.m */,
 				A83E7CC51B90C522006196CE /* Accelerometer.h */,
 				A83E7CC61B90C522006196CE /* Accelerometer.m */,
 				A814C3741B90B327005F5BD5 /* UIImagePickerManager.m */,
@@ -544,7 +554,9 @@
 				A814C3751B90B327005F5BD5 /* UIImagePickerManager.m in Sources */,
 				A83E7CC71B90C522006196CE /* Accelerometer.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				A83E7CD61B90CEAA006196CE /* Gyroscope.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				A83E7CD71B90CEAA006196CE /* Magnetometer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

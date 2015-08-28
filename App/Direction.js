@@ -7,35 +7,67 @@ var {
   DeviceEventEmitter
 } = React
 var {
-  Accelerometer
+  Accelerometer,
+  Gyroscope,
+  Magnetometer
 } = require('NativeModules');
 
 
 class Direction extends Component {
   constructor() {
     super()
-    this.state = {x: 0, y: 0, z: 0}
+    this.state = {
+      accel_x: 0, accel_y: 0, accel_z: 0,
+      rot_x: 0, rot_y: 0, rot_z: 0,
+      mag_x: 0, mag_y: 0, mag_z: 0
+    }
   }
 
   componentDidMount() {
-    Accelerometer.setAccelerometerUpdateInterval(0.1) // in seconds
+    Accelerometer.setAccelerometerUpdateInterval(0.1)
 
     DeviceEventEmitter.addListener('AccelerationData', (data) => {
       if (data) {
-        this.setState({x: data.acceleration.x})
-        this.setState({y: data.acceleration.y})
-        this.setState({z: data.acceleration.z})
+        this.setState({accel_x: data.acceleration.x})
+        this.setState({accel_y: data.acceleration.y})
+        this.setState({accel_z: data.acceleration.z})
       }
     })
-    Accelerometer.startAccelerometerUpdates() // you'll start getting AccelerationData events above
+    Accelerometer.startAccelerometerUpdates()
+
+    Gyroscope.setGyroUpdateInterval(0.1)
+    DeviceEventEmitter.addListener('GyroData', (data) => {
+      this.setState({rot_x: data.rotationRate.x})
+      this.setState({rot_y: data.rotationRate.y})
+      this.setState({rot_z: data.rotationRate.z})
+    })
+    Gyroscope.startGyroUpdates()
+
+    Magnetometer.setMagnetometerUpdateInterval(0.1)
+    DeviceEventEmitter.addListener('MagnetometerData', (data) => {
+      this.setState({mag_x: data.magneticField.x})
+      this.setState({mag_y: data.magneticField.y})
+      this.setState({mag_z: data.magneticField.z})
+    })
+    Magnetometer.startMagnetometerUpdates()
   }
 
   render() {
     return (
+
       <View style={styles.container}>
-        <Text style={styles.text}>x: {this.state.x}</Text>
-        <Text style={styles.text}>y: {this.state.y}</Text>
-        <Text style={styles.text}>z: {this.state.z}</Text>
+        <Text>Acceleration</Text>
+        <Text style={styles.text}>x: {this.state.accel_x}</Text>
+        <Text style={styles.text}>y: {this.state.accel_y}</Text>
+        <Text style={styles.text}>z: {this.state.accel_z}</Text>
+        <Text>Rotation</Text>
+        <Text style={styles.text}>x: {this.state.rot_x}</Text>
+        <Text style={styles.text}>y: {this.state.rot_y}</Text>
+        <Text style={styles.text}>z: {this.state.rot_z}</Text>
+        <Text>Magnetic Field</Text>
+        <Text style={styles.text}>x: {this.state.mag_x}</Text>
+        <Text style={styles.text}>y: {this.state.mag_y}</Text>
+        <Text style={styles.text}>z: {this.state.mag_z}</Text>
       </View>
     );
   }
