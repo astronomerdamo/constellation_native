@@ -16,20 +16,20 @@ const {
 class Camera extends Component {
   constructor() {
     super()
-    this.state = {avatarSource: null}
+    this.state = {starSource: null}
   }
 
-  avatarTapped() {
+  starTapped() {
     var options = {
-      title: 'Select Avatar',
+      title: 'Constellation Image',
       cancelButtonTitle: 'Cancel',
-      takePhotoButtonTitle: 'Take Photo...',
+      takePhotoButtonTitle: 'From Camera...',
       takePhotoButtonHidden: false,
-      chooseFromLibraryButtonTitle: 'Choose from Library...',
+      chooseFromLibraryButtonTitle: 'From Library...',
       chooseFromLibraryButtonHidden: false,
       returnBase64Image: true,
       returnIsVertical: false,
-      quality: 0.2
+      quality: 1.0
     };
 
     UIImagePickerManager.showImagePicker(options, (type, response) => {
@@ -37,7 +37,7 @@ class Camera extends Component {
       if (type !== 'cancel') {
         const source = {uri: 'data:image/jpeg;base64,' + response, isStatic: true};
         this.setState({
-          avatarSource: source
+          starSource: source
         });
       }
     });
@@ -46,10 +46,10 @@ class Camera extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={::this.avatarTapped}>
-          <View style={[styles.avatar, styles.avatarContainer]}>
-          { this.state.avatarSource === null ? <Text>Select a Photo</Text> :
-            <Image style={styles.avatar} source={this.state.avatarSource} />
+        <TouchableOpacity onPress={::this.starTapped}>
+          <View style={[styles.star, styles.starContainer]}>
+          { this.state.starSource === null ? <Text>Find a Constellation</Text> :
+            <Image style={styles.star} source={this.state.starSource} />
           }
           </View>
         </TouchableOpacity>
@@ -74,13 +74,13 @@ var styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 5
   },
-  avatarContainer: {
+  starContainer: {
     borderColor: '#9B9B9B',
     borderWidth: 1 / PixelRatio.get(),
     justifyContent: 'center',
     alignItems: 'center'
   },
-  avatar: {
+  star: {
     borderRadius: 75,
     width: 150,
     height: 150
