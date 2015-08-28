@@ -8,7 +8,6 @@ var {
 } = React
 var {
   Accelerometer,
-  Gyroscope,
   Magnetometer
 } = require('NativeModules');
 
