@@ -21,9 +21,6 @@ class Direction extends Component {
       rot_x: 0, rot_y: 0, rot_z: 0,
       mag_x: 0, mag_y: 0, mag_z: 0
     }
-    // accel_x: 0, accel_y: -1, accel_z: 0, straight up
-    // accel_x: 0, accel_y: 0, accel_z: 1 flat
-    // accel_x: 1, accel_y: 0, accel_z: 0 rotated right
   }
 
   componentDidMount() {
@@ -38,14 +35,6 @@ class Direction extends Component {
     })
     Accelerometer.startAccelerometerUpdates()
 
-    Gyroscope.setGyroUpdateInterval(0.1)
-    DeviceEventEmitter.addListener('GyroData', (data) => {
-      this.setState({rot_x: data.rotationRate.x})
-      this.setState({rot_y: data.rotationRate.y})
-      this.setState({rot_z: data.rotationRate.z})
-    })
-    Gyroscope.startGyroUpdates()
-
     Magnetometer.setMagnetometerUpdateInterval(0.1)
     DeviceEventEmitter.addListener('MagnetometerData', (data) => {
       this.setState({mag_x: data.magneticField.x})
@@ -55,11 +44,11 @@ class Direction extends Component {
     Magnetometer.startMagnetometerUpdates()
   }
 
-  roll(y, z) {
+  pitch(y, z) {
     return Math.atan(y / z) * (180 / Math.PI)
   }
 
-  pitch(x, y, z) {
+  roll(x, y, z) {
     numerator = -1 * x
     denominator = Math.sqrt(Math.pow(y, 2) + Math.pow(z, 2))
     return Math.atan(numerator / denominator) * (180 / Math.PI)
@@ -69,16 +58,8 @@ class Direction extends Component {
     return (
 
       <View style={styles.container}>
-        <Text>Acceleration</Text>
-        <Text style={styles.text}>x: {this.state.accel_x}</Text>
-        <Text style={styles.text}>y: {this.state.accel_y}</Text>
-        <Text style={styles.text}>z: {this.state.accel_z}</Text>
-        <Text>Roll: {this.roll(this.state.accel_y, this.state.accel_z)}</Text>
-        <Text>Pitch: {this.pitch(this.state.accel_x, this.state.accel_y, this.state.accel_z)}</Text>
-        <Text>Rotation</Text>
-        <Text style={styles.text}>x: {this.state.rot_x}</Text>
-        <Text style={styles.text}>y: {this.state.rot_y}</Text>
-        <Text style={styles.text}>z: {this.state.rot_z}</Text>
+        <Text>Pitch: {this.pitch(this.state.accel_y, this.state.accel_z)}</Text>
+        <Text>Roll: {this.roll(this.state.accel_x, this.state.accel_y, this.state.accel_z)}</Text>
         <Text>Magnetic Field</Text>
         <Text style={styles.text}>x: {this.state.mag_x}</Text>
         <Text style={styles.text}>y: {this.state.mag_y}</Text>
