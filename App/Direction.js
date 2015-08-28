@@ -17,7 +17,7 @@ class Direction extends Component {
   constructor() {
     super()
     this.state = {
-      accel_x: 0, accel_y: 0, accel_z: 0,
+      accel_x: 0, accel_y: 1, accel_z: 0,
       rot_x: 0, rot_y: 0, rot_z: 0,
       mag_x: 0, mag_y: 0, mag_z: 0
     }
@@ -60,6 +60,7 @@ class Direction extends Component {
         <Text style={styles.text}>x: {this.state.accel_x}</Text>
         <Text style={styles.text}>y: {this.state.accel_y}</Text>
         <Text style={styles.text}>z: {this.state.accel_z}</Text>
+        <Text>Orientation: {Math.atan(this.state.accel_y / -this.state.accel_x) * (180 / Math.PI)}</Text>
         <Text>Rotation</Text>
         <Text style={styles.text}>x: {this.state.rot_x}</Text>
         <Text style={styles.text}>y: {this.state.rot_y}</Text>
