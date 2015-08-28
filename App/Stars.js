@@ -6,25 +6,33 @@ var {
   Text
 } = React
 
-var stars = require('./Components/StarData/StarsSample.json')
+var stars = require('./Components/StarData/Stars.json')
 var star = stars[Math.floor(Math.random()*stars.length)]
 
-class Stars extends Component {
-
+var Stars = React.createClass ({
+  getInitialState: function() {
+    return stars[Math.floor(Math.random()*stars.length)];
+  },
+  tick: function() {
+    this.setState(stars[Math.floor(Math.random()*stars.length)])
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 1000);
+  },
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Random Star!</Text>
-        <Text style={styles.text}>id: {star['ID']}</Text>
-        <Text style={styles.text}>Proper Name: {star['Proper Name']}</Text>
-        <Text style={styles.text}>Right ascension: {star['Right Ascension']}</Text>
-        <Text style={styles.text}>Declination: {star['Declination']}</Text>
-        <Text style={styles.text}>Spectrum: {star['Spectrum']}</Text>
-        <Text style={styles.text}>Constellation: {star['Constellation']}</Text>
+        <Text style={styles.text}>id: {this.state['ID']}</Text>
+        <Text style={styles.text}>Proper Name: {this.state['Proper Name']}</Text>
+        <Text style={styles.text}>Right ascension: {this.state['Right Ascension']}</Text>
+        <Text style={styles.text}>Declination: {this.state['Declination']}</Text>
+        <Text style={styles.text}>Spectrum: {this.state['Spectrum']}</Text>
+        <Text style={styles.text}>Constellation: {this.state['Constellation']}</Text>
       </View>
     );
   }
-}
+})
 
 var styles = StyleSheet.create({
   container: {
