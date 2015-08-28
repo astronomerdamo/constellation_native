@@ -89,7 +89,7 @@ function bv_to_rgb(bv) {
   console.log(R*255)
   console.log(G*255)
   console.log(B*255)
-  return [Math.round(R*255),Math.round(G*255),Math.round(B*255)]
+  return {R: Math.round(R*255), G: Math.round(G*255), B: Math.round(B*255)}
 }
 
 
@@ -118,16 +118,16 @@ var Stars = React.createClass ({
     );
   }
 })
-
+// <Text style={styles.text}>#{bv_to_rgb(this.state['Color Index'])}</Text>
 var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#111',
   },
   text: {
-    color: 'blue',
+    color: '#EEE',
     fontFamily: 'Helvetica',
     fontSize: 18,
     textAlign: 'center',
