@@ -17,7 +17,7 @@ var Stars = React.createClass ({
     this.setState(stars[Math.floor(Math.random()*stars.length)])
   },
   componentDidMount: function() {
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 4000);
   },
   render() {
     return (
