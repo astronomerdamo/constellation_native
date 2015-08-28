@@ -52,6 +52,16 @@ class Direction extends Component {
     Magnetometer.startMagnetometerUpdates()
   }
 
+  roll(y, z) {
+    return Math.atan(y / z) * (180 / Math.PI)
+  }
+
+  pitch(x, y, z) {
+    numerator = -1 * x
+    denominator = Math.sqrt(Math.pow(y, 2) + Math.pow(z, 2))
+    return Math.atan(numerator / denominator)
+  }
+
   render() {
     return (
 
@@ -60,7 +70,8 @@ class Direction extends Component {
         <Text style={styles.text}>x: {this.state.accel_x}</Text>
         <Text style={styles.text}>y: {this.state.accel_y}</Text>
         <Text style={styles.text}>z: {this.state.accel_z}</Text>
-        <Text>Orientation: {Math.atan(this.state.accel_y / -this.state.accel_x) * (180 / Math.PI)}</Text>
+        <Text>Roll: {this.roll(this.state.accel_y, this.state.accel_z)}</Text>
+        <Text>Pitch: {this.pitch(this.state.accel_x, this.state.accel_y, this.state.accel_z)}</Text>
         <Text>Rotation</Text>
         <Text style={styles.text}>x: {this.state.rot_x}</Text>
         <Text style={styles.text}>y: {this.state.rot_y}</Text>
