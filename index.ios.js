@@ -11,7 +11,8 @@ var {
   Text,
   View,
   Component,
-  NavigatorIOS
+  NavigatorIOS,
+  Image
 } = React;
 
 class Welcome extends Component {
@@ -25,13 +26,16 @@ class Welcome extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Constellation!
-        </Text>
-        <Button text="Camera" onPress={() => this.navigateTo('Camera', Camera)}/>
-        <Button text="Time" onPress={() => this.navigateTo('Time', Time)}/>
-        <Button text="Direction" onPress={() => this.navigateTo('Direction', Direction)} />
-        <Button text="Location" onPress={() => this.navigateTo('Location', MyLocation)}/>
+        <Image source={{uri: 'http://www.hdiphone6wallpaper.com/wp-content/uploads/Space/Blue%20Star%20Universe%20iPhone%206%20Wallpaper.jpg'}}
+         style={styles.backgroundPicture}>
+           <Text style={styles.welcome}>
+             Welcome to Constellation!
+           </Text>
+           <Button text="Camera" onPress={() => this.navigateTo('Camera', Camera)}/>
+           <Button text="Time" onPress={() => this.navigateTo('Time', Time)}/>
+           <Button text="Direction" onPress={() => this.navigateTo('Direction', Direction)} />
+           <Button text="Location" onPress={() => this.navigateTo('Location', MyLocation)}/>
+        </Image>
       </View>
     );
   }
@@ -54,11 +58,14 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    alignItems: 'stretch',
+    backgroundColor: 'transparent',
   },
   welcome: {
-    fontSize: 20,
+    flex: 1,
+    fontSize: 25,
+    fontFamily: 'Helvetica',
+    color: 'white',
     textAlign: 'center',
     margin: 10,
   },
@@ -69,6 +76,11 @@ var styles = StyleSheet.create({
   },
   rootContainer: {
     flex: 1
+  },
+  backgroundPicture: {
+    flex: 1,
+    resizeMode: 'cover',
+    position: 'relative'
   }
 });
 
