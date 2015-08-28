@@ -3,17 +3,24 @@ var {
   Component,
   StyleSheet,
   View,
-  Text
+  Text,
+  SVGComponent
 } = React
 
 var stars = require('./Components/StarData/Stars.json')
 var star = stars[Math.floor(Math.random()*stars.length)]
 
-var Circle = React.createClass({
-    render: function() {
-        return <circle {...this.props}>{this.props.children}</circle>;
-    }
-})
+function getStarColour (spectrum) {
+  if (spectrum === 'A') {
+    starcolour = '#GGG';
+  } else if (spectrum === 'B') {
+    starcolour = '#123456';
+  } else {
+    // acts as our "default"
+    starcolour = 'green';
+  }
+  return starcolour;
+}
 
 var Stars = React.createClass ({
   getInitialState: function() {
@@ -35,10 +42,7 @@ var Stars = React.createClass ({
         <Text style={styles.text}>Declination: {this.state['Declination']}</Text>
         <Text style={styles.text}>Spectrum: {this.state['Spectrum']}</Text>
         <Text style={styles.text}>Constellation: {this.state['Constellation']}</Text>
-        <SVGComponent height="100" width="100">
-            <Circle cx="50" cy="50" r="25" />
-        </SVGComponent>,
-        document.getElementById('svg_circle')
+        <View style={{borderRadius: 100, borderWidth: 0, width: 200, height: 200, backgroundColor: getStarColour(this.state['Spectrum'][0])}} />
       </View>
     );
   }
