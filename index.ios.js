@@ -4,6 +4,7 @@ import Camera from './App/Camera'
 import Time from './App/Time'
 import Direction from './App/Direction'
 import MyLocation from './App/MyLocation'
+import Stars from './App/Stars'
 
 var {
   AppRegistry,
@@ -35,6 +36,7 @@ class Welcome extends Component {
            <Button text="Time" onPress={() => this.navigateTo('Time', Time)}/>
            <Button text="Direction" onPress={() => this.navigateTo('Direction', Direction)} />
            <Button text="Location" onPress={() => this.navigateTo('Location', MyLocation)}/>
+           <Button text="Stars" onPress={() => this.navigateTo('Location', Stars)}/>
         </Image>
       </View>
     );

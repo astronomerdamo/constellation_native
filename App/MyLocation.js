@@ -8,13 +8,6 @@ var {
 
 exports.title = 'My Location';
 
-// class MyLocation extends Component {
-//
-//   constructor() {
-//     super()
-//     this.watchID = (null: ?number)
-//   }
-
 var MyLocation = React.createClass({
   watchID: (null: ?number),
 
